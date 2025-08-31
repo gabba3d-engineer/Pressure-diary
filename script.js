@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const togglePassword = document.getElementById('togglePassword');
-    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
     const loginBtn = document.getElementById('loginBtn');
     const registerBtn = document.getElementById('registerBtn');
     const messageEl = document.getElementById('message');
@@ -105,24 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     logoutBtn.addEventListener('click', logoutUser);
 
-    // Funzioni aggiunte per mostrare la password e recuperarla
+    // Funzioni per mostrare la password
     togglePassword.addEventListener('click', () => {
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
-    });
-
-    forgotPasswordLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        const username = prompt("Inserisci il tuo nome utente per recuperare la password:");
-        if (username) {
-            const users = JSON.parse(localStorage.getItem('users')) || {};
-            const password = users[username];
-            if (password) {
-                alert(`La tua password è: ${password}`);
-            } else {
-                alert("Nome utente non trovato.");
-            }
-        }
     });
 
     // Funzioni per il diario
