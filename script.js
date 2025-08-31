@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const authForm = document.getElementById('authForm');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
     const loginBtn = document.getElementById('loginBtn');
     const registerBtn = document.getElementById('registerBtn');
     const messageEl = document.getElementById('message');
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableBody = document.querySelector('#pressioneTable tbody');
     const ctx = document.getElementById('pressioneChart').getContext('2d');
     const exportPdfBtn = document.getElementById('exportPdfBtn');
+    const exportJsonBtn = document.getElementById('exportJsonBtn');
     const submitBtn = form.querySelector('button[type="submit"]');
     const updateBtn = document.getElementById('updateBtn');
     const cancelBtn = document.getElementById('cancelBtn');
@@ -101,6 +104,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     logoutBtn.addEventListener('click', logoutUser);
+
+    // Funzioni aggiunte per mostrare la password e recuperarla
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+    });
+
+    forgotPasswordLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const username = prompt("Inserisci il tuo nome utente per recuperare la password:");
+        if (username) {
+            const users = JSON.parse(localStorage.getItem('users')) || {};
+            const password = users[username];
+            if (password) {
+                alert(`La tua password è: ${password}`);
+            } else {
+                alert("Nome utente non trovato.");
+            }
+        }
+    });
 
     // Funzioni per il diario
     function loadMisurazioni() {
@@ -343,6 +366,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             doc.save(`diario_pressione_${currentUser}.pdf`);
         });
+    });
+
+    exportJsonBtn.addEventListener('click', () => {
+        const misurazioniUtente = misurazioni.filter(m => m.username === currentUser);
+        const dataStr = JSON.stringify(misurazioniUtente, null, 2);
+        
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `diario_pressione_${currentUser}.json`; 
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     });
 
     checkLoginStatus();
