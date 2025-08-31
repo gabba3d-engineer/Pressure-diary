@@ -1,0 +1,243 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1, h2 {
+    color: #0056b3;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.status-circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.status-green {
+    background-color: #28a745;
+}
+
+.status-yellow {
+    background-color: #ffc107;
+}
+
+.status-red {
+    background-color: #dc3545;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.action-buttons button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+/* Regole per schermi piccoli (tablet e smartphone) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    form {
+        gap: 10px;
+    }
+    input, textarea, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    th, td {
+        padding: 8px;
+    }
+
+    header { /* Regolazioni per schermi piccoli */
+        flex-direction: column; /* Impila gli elementi verticalmente */
+        text-align: center;
+    }
+    header h1 {
+        font-size: 1.5em; /* Riduci la dimensione del titolo */
+        margin-bottom: 5px;
+    }
+    #welcomeMessage {
+        font-size: 1em; /* Riduci la dimensione del messaggio */
+        margin: 5px 0;
+    }
+    #logoutBtn {
+        margin: 10px auto 0 auto; /* Centra il pulsante di logout */
+        float: none; /* Rimuovi float */
+        width: auto; /* Adatta la larghezza */
+    }
+    #authScreen button {
+        width: 100%; /* I pulsanti di login/registrazione occupano tutta la larghezza */
+        margin: 5px 0;
+    }
+}
+
+
+/* Stile per la schermata di login/registrazione */
+#authScreen {
+    text-align: center;
+}
+#authScreen form {
+    margin-top: 20px;
+}
+#authScreen button {
+    width: 48%;
+    margin: 5px;
+}
+#authScreen #message {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#logoutBtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* float: right; */ /* Rimosso */
+    /* margin-top: -50px; */ /* Rimosso */
+    margin-left: 15px; /* Aggiunto */
+    flex-shrink: 0; /* Aggiunto */
+}
+#logoutBtn:hover {
+    background-color: #c82333;
+}
+
+header {
+    /* overflow: auto; */ /* Rimosso */
+    display: flex; /* Aggiunto */
+    justify-content: space-between; /* Aggiunto */
+    align-items: center; /* Aggiunto */
+    margin-bottom: 20px;
+}
+header h1 {
+    /* float: left; */ /* Rimosso */
+    margin-top: 0;
+    margin-bottom: 0; /* Aggiunto */
+    flex-shrink: 0; /* Aggiunto */
+}
+#welcomeMessage {
+    /* text-align: left; */ /* Rimosso */
+    color: #555;
+    font-size: 1.1em;
+    margin: 0 15px; /* Modificato */
+    white-space: nowrap; /* Aggiunto */
+    overflow: hidden; /* Aggiunto */
+    text-overflow: ellipsis; /* Aggiunto */
+    flex-grow: 1; /* Permette al messaggio di occupare lo spazio disponibile */
+}

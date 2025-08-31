@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario della Pressione</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="authScreen" class="container">
+        <h1>Diario della Pressione</h1>
+        <form id="authForm">
+            <label for="username">Nome Utente:</label>
+            <input type="text" id="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            
+            <button type="submit" id="loginBtn">Accedi</button>
+            <button type="button" id="registerBtn">Registrati</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <div id="appContainer" class="container" style="display: none;">
+        <header>
+            <h1>Diario della Pressione</h1>
+            <p id="welcomeMessage">Benvenuto!</p>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <form id="pressioneForm">
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="ora">Ora:</label>
+            <input type="time" id="ora" required>
+            
+            <label for="sistolica">Pressione Sistolica (mmHg):</label>
+            <input type="number" id="sistolica" required>
+            
+            <label for="diastolica">Pressione Diastolica (mmHg):</label>
+            <input type="number" id="diastolica" required>
+            
+            <label for="battito">Battito Cardiaco (bpm):</label>
+            <input type="number" id="battito" required>
+            
+            <label for="note">Note:</label>
+            <textarea id="note"></textarea>
+            
+            <button type="submit">Aggiungi Misurazione</button>
+        </form>
+        
+        <div id="actionButtons" style="display:none;">
+            <button id="updateBtn">Aggiorna Misurazione</button>
+            <button id="cancelBtn">Annulla Modifica</button>
+        </div>
+
+        <h2>Misurazioni Registrate</h2>
+        <table id="pressioneTable">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Sistolica</th>
+                    <th>Diastolica</th>
+                    <th>Battito</th>
+                    <th>Note</th>
+                    <th>Stato</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+        
+        <button id="exportPdfBtn">Esporta in PDF</button>
+
+        <h2>Andamento della Pressione</h2>
+        <div class="chart-container">
+            <canvas id="pressioneChart"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
