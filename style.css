@@ -161,25 +161,25 @@ tr:nth-child(even) {
         padding: 8px;
     }
 
-    header { /* Regolazioni per schermi piccoli */
-        flex-direction: column; /* Impila gli elementi verticalmente */
+    header {
+        flex-direction: column;
         text-align: center;
     }
     header h1 {
-        font-size: 1.5em; /* Riduci la dimensione del titolo */
+        font-size: 1.5em;
         margin-bottom: 5px;
     }
     #welcomeMessage {
-        font-size: 1em; /* Riduci la dimensione del messaggio */
+        font-size: 1em;
         margin: 5px 0;
     }
     #logoutBtn {
-        margin: 10px auto 0 auto; /* Centra il pulsante di logout */
-        float: none; /* Rimuovi float */
-        width: auto; /* Adatta la larghezza */
+        margin: 10px auto 0 auto;
+        float: none;
+        width: auto;
     }
     #authScreen button {
-        width: 100%; /* I pulsanti di login/registrazione occupano tutta la larghezza */
+        width: 100%;
         margin: 5px 0;
     }
 }
@@ -209,35 +209,59 @@ tr:nth-child(even) {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    /* float: right; */ /* Rimosso */
-    /* margin-top: -50px; */ /* Rimosso */
-    margin-left: 15px; /* Aggiunto */
-    flex-shrink: 0; /* Aggiunto */
+    margin-left: 15px;
+    flex-shrink: 0;
 }
 #logoutBtn:hover {
     background-color: #c82333;
 }
 
 header {
-    /* overflow: auto; */ /* Rimosso */
-    display: flex; /* Aggiunto */
-    justify-content: space-between; /* Aggiunto */
-    align-items: center; /* Aggiunto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 header h1 {
-    /* float: left; */ /* Rimosso */
     margin-top: 0;
-    margin-bottom: 0; /* Aggiunto */
-    flex-shrink: 0; /* Aggiunto */
+    margin-bottom: 0;
+    flex-shrink: 0;
 }
 #welcomeMessage {
-    /* text-align: left; */ /* Rimosso */
     color: #555;
     font-size: 1.1em;
-    margin: 0 15px; /* Modificato */
-    white-space: nowrap; /* Aggiunto */
-    overflow: hidden; /* Aggiunto */
-    text-overflow: ellipsis; /* Aggiunto */
-    flex-grow: 1; /* Permette al messaggio di occupare lo spazio disponibile */
+    margin: 0 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+/* Stili aggiunti per la visualizzazione della password */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Spazio per l'icona */
+}
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+#forgotPasswordLink {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+#forgotPasswordLink:hover {
+    text-decoration: underline;
 }
