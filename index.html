@@ -18,10 +18,15 @@
             <input type="text" id="username" required>
             
             <label for="password">Password:</label>
-            <input type="password" id="password" required>
+            <div class="password-container">
+                <input type="password" id="password" required>
+                <span id="togglePassword" class="eye-icon">👁️</span>
+            </div>
             
             <button type="submit" id="loginBtn">Accedi</button>
             <button type="button" id="registerBtn">Registrati</button>
+            
+            <a href="#" id="forgotPasswordLink">Hai dimenticato la password?</a>
         </form>
         <p id="message"></p>
     </div>
@@ -79,6 +84,7 @@
         </table>
         
         <button id="exportPdfBtn">Esporta in PDF</button>
+        <button id="exportJsonBtn">Esporta in JSON</button>
 
         <h2>Andamento della Pressione</h2>
         <div class="chart-container">
